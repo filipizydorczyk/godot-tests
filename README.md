@@ -1,0 +1,1 @@
+This repository exists as a learning place for me. I am craeting simple game mechanics in GODOT and testing them. Each one in seprete scene. The goal is to get decen at game programing and maybe ship a smile game someday.
