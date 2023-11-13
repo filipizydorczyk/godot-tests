@@ -9,7 +9,8 @@ func _process(delta):
 		self.zoom = lerp(self.zoom, target_zoom, 0.05)
 
 func _on_zoomed_camera_area_body_entered(body):
-	target_zoom = Vector2(4, 4)
+	if(body.name == "Player"):
+		target_zoom = Vector2(4, 4)
 
 
 func _on_zoomed_camera_area_body_exited(body):
