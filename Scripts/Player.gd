@@ -16,11 +16,11 @@ func _physics_process(delta):
 	else:
 		jumps = 2
 
-	if Input.is_action_just_pressed("ui_accept") and jumps > 0:
+	if Input.is_action_just_pressed("game_action_up") and jumps > 0:
 		velocity.y = JUMP_VELOCITY
 		jumps -= 1
 
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("game_action_left", "game_action_right")
 	
 	if direction:
 		velocity.x = direction * SPEED
