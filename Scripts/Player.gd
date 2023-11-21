@@ -10,7 +10,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumps = 2
 
 func _physics_process(delta):
-	
+	var direction = Input.get_axis("game_action_left", "game_action_right")
+	var movement_velocity = direction * SPEED
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
@@ -20,10 +22,12 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		jumps -= 1
 
-	var direction = Input.get_axis("game_action_left", "game_action_right")
-	
-	if direction:
-		velocity.x = direction * SPEED
+	if Input.is_action_just_pressed("game_action_super_movement"):
+		var dash_direction = 1 if direction == 0 else direction
+		velocity.x = dash_direction * (SPEED * 8)
+
+	if direction and abs(velocity.x) <= abs(movement_velocity):
+		velocity.x = movement_velocity
 		animation.flip_h = direction > 0;
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -33,3 +37,4 @@ func _physics_process(delta):
 
 func _on_high_jump_area_body_entered(body):
 	velocity.y = JUMP_VELOCITY * 2
+
