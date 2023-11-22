@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://6gl8jir4wm0y"]
+[gd_scene load_steps=10 format=3 uid="uid://6gl8jir4wm0y"]
 
 [ext_resource type="Texture2D" uid="uid://benhfr1lamh81" path="res://Assets/Environnement/TileMap.png" id="1_pw50x"]
-[ext_resource type="PackedScene" uid="uid://dgc4opp3od5lk" path="res://Characters/Player.tscn" id="2_c64tw"]
+[ext_resource type="PackedScene" uid="uid://dgc4opp3od5lk" path="res://Entities/Player.tscn" id="2_c64tw"]
 [ext_resource type="Texture2D" uid="uid://p78k80b3foxj" path="res://Assets/Environnement/Sky.png" id="3_140a4"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_jro8d"]
+[ext_resource type="PackedScene" uid="uid://cbyrq4ttf2ld1" path="res://Entities/Ball.tscn" id="5_3ymd8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hfpq1"]
 texture = ExtResource("1_pw50x")
@@ -82,6 +83,9 @@ text = "Super
 jump
 test"
 horizontal_alignment = 1
+
+[node name="Ball" parent="." instance=ExtResource("5_3ymd8")]
+position = Vector2(299, -79)
 
 [connection signal="body_entered" from="ZoomedCameraArea" to="Camera2D" method="_on_zoomed_camera_area_body_entered"]
 [connection signal="body_exited" from="ZoomedCameraArea" to="Camera2D" method="_on_zoomed_camera_area_body_exited"]
