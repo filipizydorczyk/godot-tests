@@ -21,6 +21,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("game_action_up") and jumps > 0:
 		velocity.y = JUMP_VELOCITY
 		jumps -= 1
+		
+	if Input.is_action_just_pressed("game_action_shoot"):
+		__spawn_a_ball()
 
 	if Input.is_action_just_pressed("game_action_super_movement"):
 		var dash_direction = 1 if direction == 0 else direction
@@ -38,3 +41,9 @@ func _physics_process(delta):
 func _on_high_jump_area_body_entered(body):
 	velocity.y = JUMP_VELOCITY * 2
 
+func __spawn_a_ball():
+	var ball = load("res://Entities/Ball.tscn")
+	var instance = ball.instantiate()
+	instance.set_position(self.position + Vector2(0, -50))
+	get_tree().get_current_scene().call_deferred("add_child", instance)
+	

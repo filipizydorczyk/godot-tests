@@ -23,7 +23,7 @@ size = Vector2(96, 159)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4j6vq"]
 size = Vector2(63, 9)
 
-[node name="TestLevel" type="Node2D"]
+[node name="MovementTest" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -86,6 +86,15 @@ horizontal_alignment = 1
 
 [node name="Ball" parent="." instance=ExtResource("5_3ymd8")]
 position = Vector2(299, -79)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -128.0
+offset_right = 104.0
+offset_bottom = -76.0
+text = "Press LMB to 
+realease the ball"
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="ZoomedCameraArea" to="Camera2D" method="_on_zoomed_camera_area_body_entered"]
 [connection signal="body_exited" from="ZoomedCameraArea" to="Camera2D" method="_on_zoomed_camera_area_body_exited"]
