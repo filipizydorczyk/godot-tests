@@ -42,8 +42,12 @@ func _on_high_jump_area_body_entered(body):
 	velocity.y = JUMP_VELOCITY * 2
 
 func __spawn_a_ball():
-	var ball = load("res://Entities/Ball.tscn")
-	var instance = ball.instantiate()
+	var direction = Input.get_axis("game_action_left", "game_action_right")
+	var ball = preload("res://Entities/Ball.tscn")
+	var instance: RigidBody2D = ball.instantiate()
 	instance.set_position(self.position + Vector2(0, -50))
+	instance.apply_impulse(Vector2(direction * 300,-300))
+	
 	get_tree().get_current_scene().call_deferred("add_child", instance)
 	
+
