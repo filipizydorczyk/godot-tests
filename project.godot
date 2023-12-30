@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="godot-2d-test"
-run/main_scene="res://Tests/MovementTest.tscn"
+run/main_scene="res://Tests/InventoryTest.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
