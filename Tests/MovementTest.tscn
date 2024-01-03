@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://6gl8jir4wm0y"]
 
 [ext_resource type="Texture2D" uid="uid://benhfr1lamh81" path="res://Assets/Environnement/TileMap.png" id="1_pw50x"]
+[ext_resource type="PackedScene" uid="uid://tcphqnninddd" path="res://Entities/Background.tscn" id="1_qs0mo"]
 [ext_resource type="PackedScene" uid="uid://dgc4opp3od5lk" path="res://Entities/Player.tscn" id="2_c64tw"]
-[ext_resource type="Texture2D" uid="uid://p78k80b3foxj" path="res://Assets/Environnement/Sky.png" id="3_140a4"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_jro8d"]
 [ext_resource type="PackedScene" uid="uid://cbyrq4ttf2ld1" path="res://Entities/Ball.tscn" id="5_3ymd8"]
 
@@ -25,13 +25,7 @@ size = Vector2(63, 9)
 
 [node name="MovementTest" type="Node2D"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1440, 1080)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("3_140a4")
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_qs0mo")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2lsvx")
